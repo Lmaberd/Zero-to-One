@@ -1,5 +1,5 @@
 """
-3. The Simple Portfolio Rebalancer
+The Simple Portfolio Rebalancer
 Concepts: Dictionaries (Hash Maps), basic math, iterating over keys and values
 The Premise: You have a small portfolio of assets, and you want to rebalance it so that your wealth is distributed exactly according to a target percentage.
 The Task:
