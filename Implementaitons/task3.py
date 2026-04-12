@@ -1,5 +1,5 @@
 """
-1. The Simple SMA Backtester
+The Simple SMA Backtester
 Concepts: State management, sliding windows, tracking variables over time.
 The Premise: You are testing a simple algorithmic trading strategy on a single stock. The strategy is based on a Simple Moving Average (SMA).
 The Task:
