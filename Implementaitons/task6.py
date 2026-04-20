@@ -26,14 +26,14 @@ def can_reach(edges, start_node, target_node):
     # To unpack list e.g. list = [(x,y), (a,b)] use "for r1, r2 in edges:" where r1 = x and r2 = y in first iteration
     for r1, r2 in edges:
         # Add key if it doesnt exist
-        if r1 not in adj_list.keys():
+        if r1 not in adj_list:
             adj_list[r1] = []
         # Add value if it doesnt exist
         if r2 not in adj_list[r1]:
             adj_list[r1].append(r2)
 
         # Repeat everything for r2
-        if r2 not in adj_list.keys():
+        if r2 not in adj_list:
             adj_list[r2] = []
         if r1 not in adj_list[r2]:
             adj_list[r2].append(r1)
@@ -41,6 +41,9 @@ def can_reach(edges, start_node, target_node):
     
     # BFS
 
+    # Edge case
+    if start_node not in adj_list:
+        return False
     # Use set because visited should always be unique
     visited = set()
     # .add() is a set method
@@ -48,20 +51,27 @@ def can_reach(edges, start_node, target_node):
 
     queue = [start_node]
 
-    while len(queue) > 0:
+    # Loop as long as queue is not empty, aka not False
+    while queue:
         current_node = queue.pop(0)
         if current_node == target_node:
             return True
         
         # Add list to queue if not yet visited
-        else:
-            for i in adj_list[current_node]:
-                if i not in visited:
-                    queue.append(i)
-                    visited.add(i)
+        for i in adj_list[current_node]:
+            if i not in visited:
+                queue.append(i)
+                visited.add(i)
 
     return False
 
 
 
 print(can_reach(edges, "Users", "Merchants"))
+
+"""
+Additional learning pointers that wasn't implemented:
+By importing deque from collections library, instead of queue.pop(), I can write queue.popleft(). dequeue means 'double-ended queue'.
+Normal .pop() means that first item is poped, and everything in the list has to shift left by 1, there it is O(N).
+dequeue allows me to popleft() instantly at O(1) without shifting anything.
+"""
