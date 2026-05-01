@@ -1,19 +1,4 @@
 
-2. The Microstructure Volume Spike
-
-Concepts: Monotonic Stacks, Arrays, O(N) Time Complexity Optimization.
-
-The Premise: You are analyzing market microstructure data to calculate analytical latency. You have an array representing trade volume tick-by-tick.
-For every single tick, you want to know exactly how many ticks you have to wait until you see a volume spike that is strictly greater than the current tick.
-
-The Task:
-Write a function wait_times(volumes).volumes = [70, 72, 68, 65, 75, 71, 76]For the first volume (70), the next higher volume is 72, which is 1 tick away.
-
-For 72, the next higher volume is 75, which is 3 ticks away.If a higher volume never occurs (like 76 at the end), the wait time is 0.
-
-The Catch: You cannot use a nested for loop (an O(N^2) solution) because this array could contain millions of ticks.
-
-You must solve this in O(N) time using a Stack.Output: Return an array of wait times: [1, 3, 2, 1, 2, 1, 0].
 
 3. The Infinite Sensor Loop
 
@@ -22,7 +7,7 @@ Concepts: Linked Lists, Two Pointers (Fast & Slow), O(1) Space Complexity.
 The Premise: You are managing memory on a constrained edge computing device. 
 The sensor data is being stored in a "Singly Linked List" where each data node points to the next node in memory. 
 However, a hardware glitch might cause the data stream to loop back on itself, creating an infinite cycle that will crash the system.
-
+ 
 The Task:
 First, create a basic Node class with value and next attributes.
 
